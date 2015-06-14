@@ -1,0 +1,31 @@
+{
+  "name": "polymer-tutorial",
+  "version": "0.5.1",
+  "homepage": "https://github.com/Polymer/polymer-tutorial",
+  "authors": [
+    "Arthur Evans <arthure@google.com>",
+    "Rob Dodson <robdodson@google.com>",
+    "Eric Bidelman <ericbidelman@google.com>"
+  ],
+  "description": "Polymer tutorial for read-only social network app",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "font-roboto": "Polymer/font-roboto#~0.5.1",
+    "paper-tabs": "PolymerElements/paper-tabs#^1.0.0",
+    "paper-header-panel": "PolymerElements/paper-header-panel#^1.0.0",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#~1.0.1",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.2",
+    "iron-iconset": "PolymerElements/iron-iconset#~1.0.1"
+  }
+}

@@ -1,0 +1,81 @@
+<link rel="import"
+  href="../components/polymer/polymer.html">
+<link rel="import"
+  href="../components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import"
+  href="../components/iron-icons/iron-icons.html">
+<link rel="import"
+  href="../components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="post-card">
+  <style>
+  :host {
+    display: block;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  .card-header {
+    @apply(--layout-horizontal);
+    @apply(--layout-center);
+    margin-bottom: 10px;
+  }
+  /* Add your styles here: */
+  .card-header ::content h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+  .card-header ::content img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  paper-icon-button {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: #636363;
+  }
+  :host([favorite]) paper-icon-button {
+    color: #da4336;
+  }
+  </style>
+
+  <template>
+
+    <div class="card-header">
+      <content select="img"></content>
+      <content select="h2"></content>
+    </div>
+
+    <paper-icon-button
+      icon="favorite"
+      on-tap="favoriteTapped">
+    </paper-icon-button>
+
+    <content></content>
+
+  </template>
+</dom-module>
+
+<script>
+Polymer({
+  is: "post-card",
+  properties: {
+    favorite: {
+      type: Boolean,
+      value: false,
+      reflectToAttribute: true,
+      notify: true
+    }
+  },
+  favoriteTapped: function(event) {
+    this.favorite = !this.favorite;
+    this.fire('favorite-tap');
+  }
+});
+</script>

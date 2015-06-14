@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>unquote</title>
+
+  <meta name="viewport"
+  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <link rel="stylesheet" href="app.css">
+
+  <script src="../components/webcomponentsjs/webcomponents-lite.js">
+  </script>
+
+  <link rel="import"
+    href="../components/font-roboto/roboto.html">
+  <link rel="import"
+    href="../components/paper-header-panel/paper-header-panel.html">
+  <link rel="import"
+    href="../components/paper-toolbar/paper-toolbar.html">
+  <link rel="import"
+    href="../components/paper-tabs/paper-tabs.html">
+  <link rel="import"
+    href="../components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="post-list.html">
+
+  <style is="custom-style">
+    paper-toolbar {
+      --paper-toolbar-background: #03a9f4;
+    }
+
+    paper-tabs {
+      text-transform: uppercase;
+    }
+
+    .fit {
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .container {
+      @apply(--layout-vertical);
+      @apply(--layout-center);
+    }
+  </style>
+
+</head>
+
+<body class="fullbleed">
+  <paper-header-panel>
+
+    <paper-toolbar>
+      <paper-tabs class="fit" selected="0">
+        <paper-tab name="messages">Messages</paper-tab>
+        <paper-tab name="favorites">Favorites</paper-tab>
+      </paper-tabs>
+    </paper-toolbar>
+
+    <div class="container">
+
+      <post-list show="messages"></post-list>
+
+    </div>
+
+  </paper-header-panel>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

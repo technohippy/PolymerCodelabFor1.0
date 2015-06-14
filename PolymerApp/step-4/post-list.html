@@ -1,0 +1,50 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../post-service/post-service.html">
+<link rel="import" href="post-card.html">
+
+<dom-module id="post-list">
+  <style>
+  :host {
+    display: block;
+    width: 100%;
+  }
+  div {
+    @apply(--layout-vertical);
+    @apply(--layout-center);
+  }
+  post-card {
+    margin-bottom: 30px;
+  }
+  </style>
+
+  <template>
+
+    <!-- add markup here -->
+    <post-service id="service" posts="{{posts}}">
+    </post-service>
+
+    <div>
+
+      <template is="dom-repeat" items="{{posts}}" as="post">
+        <post-card>
+          <img src="{{post.avatar}}" width="70" height="70">
+          <h2>{{post.username}}</h2>
+          <p>{{post.text}}</p>
+        </post-card>
+      </template>
+
+    </div>
+
+  </template>
+
+</dom-module>
+
+<script>
+Polymer({
+  // define the element's JavaScript prototype here
+  is: 'post-list',
+  properties: {
+    show: String,
+  }
+});
+</script>

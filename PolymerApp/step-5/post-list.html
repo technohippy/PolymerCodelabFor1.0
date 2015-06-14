@@ -1,0 +1,62 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../post-service/post-service.html">
+<link rel="import" href="post-card.html">
+
+<dom-module id="post-list">
+  <style>
+  :host {
+    display: block;
+    width: 100%;
+  }
+  div {
+    @apply(--layout-vertical);
+    @apply(--layout-center);
+  }
+  post-card {
+    margin-bottom: 30px;
+  }
+  </style>
+
+  <template>
+
+    <!-- add markup here -->
+    <post-service id="service" posts="{{posts}}">
+    </post-service>
+
+    <div>
+
+      <template is="dom-repeat" items="{{posts}}" as="post">
+        <post-card
+          favorite="{{post.favorite}}"
+          on-favorite-tap="handleFavorite"
+          hidden$="{{isHidden(show, post)}}">
+          <img src="{{post.avatar}}" width="70" height="70">
+          <h2>{{post.username}}</h2>
+          <p>{{post.text}}</p>
+        </post-card>
+      </template>
+
+    </div>
+
+  </template>
+
+</polymer-element>
+
+<script>
+Polymer({
+  is: 'post-list',
+  properties: {
+    show: {
+      type: String,
+      reflectToAttribute: true
+    }
+  },
+  isHidden: function(show, post) {
+    return show === 'favorites' && !post.favorite;
+  },
+  handleFavorite: function(event) {
+    var post = event.model.post;
+    this.$.service.setFavorite(post.uid, post.favorite);
+  }
+});
+</script>
