@@ -1,0 +1,5 @@
+starter/index.html
+- paper-checkboxのラベルが属性ではなくtextContentに
+
+step-5/codelab-app.html
+- Array#unshiftだと変更がビューに反映されない
