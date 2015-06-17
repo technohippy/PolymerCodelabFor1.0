@@ -3,3 +3,10 @@ starter/index.html
 
 step-5/codelab-app.html
 - Array#unshiftだと変更がビューに反映されない
+
+step-7/codelab-app.html
+- fadeSelectedが動かない
+
+step-8/codelab-app.html
+- paper-shadowなくなった？
+- classを動的に設定する方法が不明
