@@ -9,11 +9,6 @@
 
 <dom-module id="codelab-app">
   <link rel="stylesheet" href="styles.css">
-  <style>
-  [main] span {
-    @apply(--layout-flex);
-  }
-  </style>
   <template>
     <paper-drawer-panel responsiveWidth="600px">
 
@@ -26,7 +21,7 @@
       <paper-header-panel main>
         <paper-toolbar>
           <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span>My notes</span>
+          <span class="flex">My notes</span>
           <paper-icon-button icon="search"></paper-icon-button>
           <paper-icon-button icon="more-vert"></paper-icon-button>
         </paper-toolbar>

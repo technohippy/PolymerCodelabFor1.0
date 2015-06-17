@@ -18,25 +18,6 @@
 
 <dom-module id="codelab-app">
   <link rel="stylesheet" href="styles.css">
-  <style>
-  [main] span {
-    @apply(--layout-flex);
-  }
-  .item {
-    @apply(--layout-center);
-    @apply(--layout-horizontal);
-  }
-  .card {
-    @apply(--layout-flex);
-  }
-  paper-item label {
-    @apply(--layout-flex);
-  }
-  paper-item div {
-    @apply(--layout-center);
-    @apply(--layout-horizontal);
-  }
-  </style>
   <template>
     <paper-drawer-panel responsiveWidth="600px">
 
@@ -46,18 +27,18 @@
         </paper-toolbar>
 
         <paper-item>
-          <label>Fade out selected</label>
+          <label class="flex">Fade out selected</label>
           <paper-toggle-button class="blue" checked="{{fadeSelected}}">
           </paper-toggle-button>
         </paper-item>
 
         <paper-item>
-          <label>Delete selected</label>
+          <label class="flex">Delete selected</label>
           <paper-icon-button icon="delete" on-click="delete"></paper-icon-button>
         </paper-item>
 
         <paper-item>
-          <div center horizontal layout>
+          <div class="layout center horizontal">
             <div>Font size</div>
             <paper-slider value="{{fontSize}}" max="32" editable></paper-slider>
           </div>
@@ -76,7 +57,7 @@
       <paper-header-panel main>
         <paper-toolbar>
           <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span>My notes</span>
+          <span class="flex">My notes</span>
           <paper-icon-button icon="search"></paper-icon-button>
           <paper-icon-button icon="more-vert"></paper-icon-button>
           <paper-fab icon="icons:add" on-click="showNewNoteInput"></paper-fab>
@@ -88,9 +69,9 @@
                        on-change="add"
                        value="{{newNote}}"></paper-input>
           <template is="dom-repeat" items="{{data}}">
-            <div class="item" data-done="{{item.done}}">
+            <div class="item layout center horizontal" data-done="{{item.done}}">
               <paper-checkbox checked="{{item.done}}" on-change="dataChanged"></paper-checkbox>
-              <div class="card">
+              <div class="card flex">
                 <p>{{item.body}}</p>
               </div>
             </div>
